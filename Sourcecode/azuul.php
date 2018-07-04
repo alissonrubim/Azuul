@@ -1,10 +1,10 @@
 <?php
-	include "mvc.functions.php";
-	include "mvc.controller.php";
-	include "mvc.route.php";
-	include "mvc.html.php";
+	include "azuul.functions.php";
+	include "azuul.controller.php";
+	include "azuul.route.php";
+	include "azuul.html.php";
 
-	class MVC {
+	class Azuul {
 		private $registered_areas = array();
 		private $registered_routers = array();
 		private $declared_controllers = array();
