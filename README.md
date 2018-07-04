@@ -11,6 +11,7 @@ Here you can find all the realeses.
 
 | Release  | Stable | Info |
 | ------------- | ------------- | ------------- |
+| [2.0.0.0](https://github.com/alissonrubim/AzuulMVC/releases/tag/2.0.0.0) | Yes | Azuul is comming! |
 | [1.0.2.0](https://github.com/alissonrubim/AzuulMVC/releases/tag/1.0.2.0) | Yes | -  |
 
 
