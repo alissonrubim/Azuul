@@ -18,6 +18,14 @@
 			return $this->current_view_flush;
 		}
 
+		public function allowMethod($methods){
+			$splitMethods = explode(",", $methods);
+			if(!in_array($_SERVER['REQUEST_METHOD'], $splitMethods)){
+				throw new Exception("Error Processing Request: This action does not allow the method [".$_SERVER['REQUEST_METHOD']."].", 1);
+				exit;
+			}
+		}
+
 		public function view($viewName = null, $model = null, $includeLayout = true){
 			$viewFile = $this->mvc->getViewsFolderPath().'/'.$this->mvc->getControllerName().'/'.$viewName.'.phtml';
 			if(file_exists($viewFile)){
@@ -76,12 +84,24 @@
 			return null;
 		}
 
+		public function setUserAuthorized($value){
+			$_SESSION['Azuul_isUserAuthorized'] = ($value === true) ? true : false;
+		}
+
+		public function isUserAuthorized(){
+			if(empty($_SESSION['Azuul_isUserAuthorized'])){
+				return false;
+			}else{
+				return $_SESSION['Azuul_isUserAuthorized'] === true;
+			}
+		}
+
 			/// <summary>
 		/// Redirect the current action to another one
 		/// </summary>
 		/// <param name="action">The action to redirect</param>
-		/*public function redirectToAction($controller, $action){
-			$this->mvc->execute($controller, $action);
-		}*/
+		public function redirectToAction($action){
+			$this->mvc->execute($action);
+		}
 	}
 ?>

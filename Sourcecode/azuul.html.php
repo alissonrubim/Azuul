@@ -13,5 +13,9 @@
         public function viewBag($str){
             return $this->controller->viewBag[$str];
         }
+
+        public function actionLink($action){
+            return get_base_url() . '/' . adjuste_url($action);
+        }
     }
 ?>

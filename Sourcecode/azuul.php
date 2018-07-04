@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	include "azuul.functions.php";
 	include "azuul.controller.php";
 	include "azuul.route.php";
@@ -114,7 +116,10 @@
 									$paramName = '{'.$param->name.'}';
 									if(array_key_exists($paramName, $route->keys)){
 										$parametersValues[$param->name] = $route->keys[$paramName];
+									}else if(!empty($this->current_controller->getParameter($param->name))){
+										$parametersValues[$param->name] = $this->current_controller->getParameter($param->name);
 									}
+								
 								}
 								$reflectionMethod->invokeArgs($this->current_controller, $parametersValues);
 							}else{

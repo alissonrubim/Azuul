@@ -1,10 +1,14 @@
 <?php
     class home extends Controller {
         public function index(){
-            $this->view("index");
+            if($this->isUserAuthorized()){ //Verify if the user is logged
+                $this->view("index"); //Call the index.phtml view for the home controller
+            }else{
+                $this->redirectToAction("login/index");
+            }
         }
 
-        public function indexPartial(){
+       /* public function indexPartial(){
             $this->partial("index");
         }
 
@@ -23,6 +27,6 @@
             $model->Name = 'Alisson';
             $model->Age = 26;
             $this->view("indexModel", $model);
-        }
+        }*/
     }
 ?>
