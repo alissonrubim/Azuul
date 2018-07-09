@@ -15,6 +15,10 @@ Here you can find all the realeses.
 | [1.0.2.0](https://github.com/alissonrubim/AzuulMVC/releases/tag/1.0.2.0) | Yes | -  |
 
 
+## Planning
+You can follow the project progess by seeing the Trello board [here](https://trello.com/b/sKmAodc6/azuul).
+
+
 Enjoy!
 
 [https://alissonrubim.github.io/Azuul/](https://alissonrubim.github.io/Azuul/)
