@@ -12,6 +12,11 @@
 		private $declared_controllers = array();
 		private $current_router = null;
 		private $current_controller = null;
+		private $controller_postfix = 'Controller';
+
+		public function setControllerPostFix($value){
+			$this->controller_postfix = $value;
+		}
 
 		public function getCurrentController(){
 			return $this->current_controller;
@@ -99,16 +104,21 @@
 
 			$file_controller = $this->getControllersFolderPath().'/'.$controller.'.controller.php';
 			if(file_exists($file_controller)){
-				if(!$this->isDeclaredController($controller)){	
+				if(!$this->isDeclaredController($controller)){	//Ferify if the controller was not included yet
 					$this->declared_controllers[] = $controller;
 					include($file_controller);
 				}
-				if(class_exists($controller)){
-					$this->current_controller = new $controller();
+
+				$controllerClass = $controller;
+				if($this->controller_postfix != null)
+					$controllerClass .= $this->controller_postfix;
+
+				if(class_exists($controllerClass)){
+					$this->current_controller = new $controllerClass();
 					if($this->current_controller instanceof Controller){
 						$this->current_controller->setMVC($this);
 						if(method_exists($this->current_controller, $action)){
-							$reflectionMethod = new ReflectionMethod($controller, $action);
+							$reflectionMethod = new ReflectionMethod($controllerClass, $action);
 							$methosParameters = $reflectionMethod->getParameters();
 							if($methosParameters != null && sizeof($methosParameters) > 0){
 								$parametersValues = array();
