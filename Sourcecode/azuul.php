@@ -97,6 +97,10 @@
 			}
 		}
 
+		public function setUserAuthorized($value){
+			$_SESSION['Azuul_isUserAuthorized'] = ($value === true) ? true : false;
+		}
+
 		//#region private
 		private function executeRoute($route){
 			$controller = $this->getControllerName();

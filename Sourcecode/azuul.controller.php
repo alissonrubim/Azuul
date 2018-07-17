@@ -84,8 +84,15 @@
 			return null;
 		}
 
+		public function allowOnlyAuthorizedUser(){
+			if(!$this->isUserAuthorized()){
+				throw new Exception("Error Processing Request: This action does not allow unauthorized user.", 1);
+				exit;
+			}
+		}
+
 		public function setUserAuthorized($value){
-			$_SESSION['Azuul_isUserAuthorized'] = ($value === true) ? true : false;
+			$mvc->setUserAuthorized($value);
 		}
 
 		public function isUserAuthorized(){
