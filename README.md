@@ -15,6 +15,17 @@ Here you can find all the realeses.
 | [1.0.2.0](https://github.com/alissonrubim/AzuulMVC/releases/tag/1.0.2.0) | Yes | -  |
 
 
+## Getting Start
+I really recomend to you download a release and execute the Example project. Doing that, you'll see what Azull is capable.
+
+## Features
+* Areas - You can use diferent areas with diferente controller/view/models to separate your project. For example, create and Administration area and a Costumers area
+* Routers - You can sign new routers, define variables, default values and set the priority. So, when Azuul receive a request, he will try to find the most exactly router and execute it!
+* Layout - You can use layout to control all your application without need to use include and copy/past methods
+* API REST Support (json response) - Azuul can be a easy way to create an API REST, just with some code.
+* Security and Autorization system - Azuul is capable to provide a secury system using just some methods that allow or deny a user to see a method in the controller.
+* Easy to understand, easy to use - The best part, in minutes you have a fully mvc application running in PHP. It's easy, fast, and have a nice way to contruct your project.
+
 ## Planning
 You can follow the project progess by seeing the Trello board [here](https://trello.com/b/sKmAodc6/azuul).
 
